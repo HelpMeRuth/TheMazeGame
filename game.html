@@ -1,0 +1,86 @@
+<html>
+
+<head>
+  <script type="text/javascript" src="./scripts/main.js"></script>
+  <script type="text/javascript" src="./scripts/inventory.js"></script>
+  <script type="text/javascript" src="./scripts/battle.js"></script>
+  <script type="text/javascript" src="./scripts/items.js"></script>
+  <script type="text/javascript" src="./scripts/monster.js"></script>
+  <script type="text/javascript" src="./scripts/view.js"></script>
+  <script type="text/javascript" src="./scripts/character.js"></script>
+</head>
+
+<body style="overflow: hidden">
+  <!-- interface -->
+  <!-- the view -->
+
+  <audio controls loop autoplay id="audio">
+    <source src="./music/normal.wav" type="audio/wav" id="music">
+  </audio>
+  <img src="./pics/sideviewR/sideview1.png" style="position:absolute;left:600;top:0px;" id="sideviewR" />
+  <img src="./pics/sideviewL/sideview1.png" style="position:absolute;left:0;top:0px;" id="sideviewL" />
+  <img src="./pics/frontview/frontview1.png" style="position:absolute;left:200;top:0px;" id="frontview" />
+  <img src="./pics/interface/userinterface.png" style="position:absolute;left:0px;top:283px;" id="interfacetype" />
+  <img src="./pics/interface/mid.png" style="position:absolute;left:200px;top:200px;" id="mid" />
+  <img src="./pics/interface/fakkelfront.gif" style="position:absolute;left:506;top:42px;" />
+  <img src="./pics/interface/sidetorch.gif" style="position:absolute;left:594;top:105px;" />
+  <img src="./pics/interface/sidetorch.gif" style="position:absolute;left:742;top:141px;" />
+  <img src="./pics/interface/fakkelfront2.gif" style="position:absolute;left:252;top:42px;" />
+  <img src="./pics/interface/sidetorch2.gif" style="position:absolute;left:157;top:105px;" />
+  <img src="./pics/interface/sidetorch2.gif" style="position:absolute;left:8;top:141px;" />
+
+
+
+  <!-- Besturing -->
+  <a href="javascript:rechtdoor();"><img src="./pics/interface/redarrow.png" style="position:absolute;left:384px;top:298px;" /></a>
+  <a href="javascript:rechts();"><img src="./pics/interface/greenarrow.png" style="position:absolute;left:412px;top:327px;" /></a>
+  <a href="javascript:links();"><img src="./pics/interface/blue-arrow.png" style="position:absolute;top:327px;left:355" /></a>
+  <a href="javascript:help();"><img src="./pics/interface/yellowarrow.png" style="position:absolute;left:385px;top:354px;" /></a>
+
+  <!-- battle -->
+  <img src="./pics/interface/combatinterface.png" style="position:absolute;top:683px;left:0px;" class="battle" />
+  <a href="javascript:currenthero.Attack(0);"><img src="./pics/characters/bloodmagic.png" style="position:absolute;top:703px;left:331px;" id="Attack0" class="battle" /></a>
+  <a href="javascript:currenthero.Attack(1);"><img src="./pics/characters/bloodmagic.png" style="position:absolute;top:703px;left:406px;" id="Attack1" class="battle" /></a>
+  <a href="javascript:currenthero.Attack(2);"><img src="./pics/characters/bloodmagic.png" style="position:absolute;top:748px;left:331px;" id="Attack2" class="battle" /></a>
+  <a href="javascript:currenthero.Attack(3);"><img src="./pics/characters/bloodmagic.png" style="position:absolute;top:748px;left:406px;" id="Attack3" class="battle" /></a>
+  <img src="./pics/characters/mazedweller.png" style="position:absolute;top:490px;left:340px;" id="enemysprite" class="battle" />
+  <img src="./pics/interface/hudenemy.png" style="position:absolute;top:470px;left:100px;" class="battle" />
+  <img src="./pics/interface/hpenemy20.png" style="position:absolute;top:470px;left:100px;" id="hpenemy" class="battle" />
+  <img src="" style="position:absolute;top:520px;left:100px;" id="usedattack" class="battle" />
+  <img src="./pics/interface/used.png" style="position:absolute;top:520px;left:100px;" class="battle" />
+  <img src="./pics/interface/mazedweller.png" style="position:absolute;top:420px;left:90px;" id="enemyname" class="battle" />
+
+  <!-- character -->
+  <img src="./pics/interface/sophia.png" id="hero" style="position:absolute;left:7px;top:370px;" id="character" />
+  <img src="./pics/interface/50health.png" style="position:absolute;left:0px;top:283px;" id="healthbar" />
+
+  <!-- Inventory -->
+  <a href="javascript:useItem();"><img src="./pics/interface/use.png" style="position:absolute;left:567px;top:382px;" id="usebutton" /></a>
+  <a href="javascript:items[3].select();"><img style="position:absolute;left:743px;top:295px;" id="3" /></a>
+  <a href="javascript:items[2].select();"><img style="position:absolute;left:686px;top:295px;" id="2" /></a>
+  <a href="javascript:items[0].select();"><img style="position:absolute;left:572px;top:295px;" id="0" /></a>
+  <a href="javascript:items[1].select();"><img style="position:absolute;left:629px;top:295px;" id="1" /></a>
+  <a href="javascript:items[7].select();"><img style="position:absolute;left:743px;top:339px;" id="7" /></a>
+  <a href="javascript:items[6].select();"><img style="position:absolute;left:686px;top:339px;" id="6" /></a>
+  <a href="javascript:items[5].select();"><img style="position:absolute;left:629px;top:339px;" id="5" /></a>
+  <a href="javascript:items[4].select();"><img style="position:absolute;left:572px;top:339px;" id="4" /></a>
+  <a style="color:white;" id="itemName"></a>
+  <!-- Eind interface -->
+
+  <!-- Select hero -->
+  <img src="./pics/interface/choosecharacter.png" style="position:absolute;left:0px;top:0px;" class="character" />
+  <a href="javascript:selecthero(1);">
+    <div style="position:absolute;height:351;width:202;left:24px;top:22px;" class="character"></div>
+  </a>
+  <a href="javascript:selecthero(2);">
+    <div style="position:absolute;height:351;width:202;left:294px;top:22px;" class="character"></div>
+  </a>
+  <a href="javascript:selecthero(3);">
+    <div style="position:absolute;height:351;width:202;left:552px;top:22px;" class="character"></div>
+  </a>
+
+
+</body>
+
+
+</html>
